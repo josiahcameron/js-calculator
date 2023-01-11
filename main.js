@@ -1,60 +1,72 @@
-(function (){
+(function(){
     "use strict";
+    
 
-const $numberButton = document.querySelectorAll('[number]');
-const $operationButton = document.querySelectorAll('[operator]');
-const $equalButton = document.querySelector('[equal-sign]');
-const $plusOrMinus = document.querySelector('[plus-minus]');
-const $percentButton = document.querySelector('[percent');
-const $decimalButton = document.querySelector('[decimal]');
-const $numberBtnLg = document.querySelector('[number btn-lg]');
-//Define a variable calculation pointing to an empty array
-const $calculation = [];
+    const $numberButtons = document.querySelectorAll(".number");
+    const $operatorButtons = document.querySelectorAll(".operator, .clear");
+    const $equalButton = document.querySelector(".equal-sign");
+    const calculation = [];
+    
+    function pushNumber(event){
+        alert(event.target.value);
+        calculation.push(event.target.value);
+        console.log(calculation)
+    };
 
-/*Define a function named pushNumber that alert()s the number
-associated with its event argument when called;
-add this function as an event listener for the number buttons
-*/
-pushNumber = (event) => {alert(event.target.value)
-};
+    $numberButtons.forEach(function (button){
+        button.addEventListener("click", pushNumber);
+    });
+
+    function pushOperator(event){
+        alert(event.target.value);
+        calculation.push(event.target.value);
+        console.log(calculation)
+    };
+
+    $operatorButtons.forEach(function (button){
+        button.addEventListener("click", pushOperator);
+    });
+
+    function calculate(event){
+        alert(event.target.value);
+        calculation.push(event.target.value);
+        console.log(calculation);
+        let num1 = "", num2 = "", operator = null;
+    }
+
+    equalButton.addEventListener('click', calculate)
+    for(let i = 0; i < numberButtons.length; i++){
+        console.log(numberButton[i])
+    }
+
+    for(let i = 0; i < calculation.length; i++){
+        let char = calculation[i]
+        if (operator.includes(char)){
+            operator = char; 
+    } else if (!operator){
+        num1 += char;
+    } else {
+        num2 += char;
+    }}
+
+    numberButtons.addEventListener("click", pushNumber)
+
+    num1 = parseFloat(num1);
+    num2 = parseFloat(num2);
+    if (operator === '+'){
+        alert(num1 + num2);
+    } else if (operator === '-'){
+        alert(num1 - num2);
+    } else if (operator === '*'){
+        alert(num1 * num2);
+    } else if (operator === '/'){
+        alert(num1 / num2);
+    } else {
+        alert("something is wrong")
+    }
+    $equalButton.addEventListener()
 
 
-function pushnumber (){
-    $numberButton.addEventListener("click", alert())
-
-}
-}
-
-/*
-Define a function named pushOperator that alert()s the
-operator (+, -, *, /, C) associated with its event argument when called;
-add this function as an event listener for the operator buttons
-*/
-pushOperator = (event) => {
-    alert(event.target.value)
-};
 
 
-/*Define a function named calculate that alerts() = when pressed; 
-add this function as an event listener for the = button 
-*/
-
-calculate = () => {
-
-}
-
-/*Using Array.prototype.push, perform actions on the calculation 
-variable when numbers and operators are pressed*/
-
-button.calculate.push(pushNumber);
-
-button.calculate.push(pushNumber);
-
-
-/*Using a for loop, alert() the calculation when = is pressed.*/
-
-
-
-/*$operationButton.addEventListener("click", pushOperator = () => {
-    window.alert(this.$operationButton.toString);})
-})*/
+})();
