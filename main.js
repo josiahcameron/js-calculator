@@ -2,7 +2,7 @@
     "use strict";
     
     //querySelector pulls node list of the classes
-    const $numberButtons = document.querySelectorAll(".number");
+    const $numberButtons = document.querySelectorAll(".number, .decimal");
     //console.dir displays an interactive list of the properties of an object
     //console.dir($numberButtons);
     const $operatorButtons = document.querySelectorAll(".operator, .clear");
