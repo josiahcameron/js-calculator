@@ -9,6 +9,7 @@
     const $equalButton = document.querySelector(".equal-sign");
     let calculation = [];
     let $display = document.querySelector(".calculator-screen");
+    let display = [];
 
 
     // screen.value go into push button functions
@@ -21,17 +22,20 @@
         //.target. is a DOM node, and will retrieve the .value of the event
         //push() will grab that value and toss it to the end of the calculation array
         calculation.push(event.target.value);
-        $display.value = event.target.value;
+        display.push(event.target.value);
+        $display.value = display.join('');
         // $numberButtons.addEventListener('click', pushNumber)
     };
     //Same as above
     function pushOperator(event){
         if (event.target.value === 'clear'){
             calculation = [];
-            $display.value = event.target.value
+            display = [];
+            $display.value = 0;
         } else {
         calculation.push(event.target.value);
         $display.value = event.target.value;
+        display = [];
         }
     };
 
@@ -73,17 +77,27 @@
         if (operator === '+'){
             let answer = num1 + num2;
             $display.value = answer;
+            calculation = [];
+            display = [];
         } else if (operator === '-'){
             let answer = num1 - num2;
             $display.value = answer;
+            calculation = [];
+            display = [];
         } else if (operator === '*'){
             let answer = num1 * num2;
             $display.value = answer;
+            calculation = [];
+            display = [];
         } else if (operator === '/'){
             let answer = num1 / num2;
             $display.value = answer;
+            calculation = [];
+            display = [];
         } else {
-            console.log("something is wrong")
+            calculation = [];
+            display = [];
+            $display.value = "error";
         }
     }
     
