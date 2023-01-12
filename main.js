@@ -7,7 +7,7 @@
     //console.dir($numberButtons);
     const $operatorButtons = document.querySelectorAll(".operator, .clear");
     const $equalButton = document.querySelector(".equal-sign");
-    const calculation = [];
+    let calculation = [];
     let $display = document.querySelector(".calculator-screen");
 
 
@@ -26,8 +26,13 @@
     };
     //Same as above
     function pushOperator(event){
+        if (event.target.value === 'clear'){
+            calculation = [];
+            $display.value = event.target.value
+        } else {
         calculation.push(event.target.value);
         $display.value = event.target.value;
+        }
     };
 
     //Clicking on a number will call the pushNumber function;
